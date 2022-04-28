@@ -14,8 +14,8 @@ safe_queens([Q|Qs], Q0, D0) :-
         abs(Q0 - Q) #\= D0,
         D1 #= D0 + 1,
         safe_queens(Qs, Q0, D1).
-      
-      
+        
+        
 show(N, Options) :-
         N #> 0,
         n_queens(N, Qs),
