@@ -1,10 +1,10 @@
 # Prolog-lang_Insertion-Sort-
-Insertion Sort(삽입정렬)에 대한 해결 코드
+- Insertion Sort(삽입정렬)에 대한 해결 코드
 
 이번 과제는 계속 오류가 나서 망해버렸지만, 이를 위해 10가지 이상의 페이지를 참고하고 
 인도 유튜버 두명의 INSORT강의를 시청했다.
 
-<1> <br>
+<1> <br> 
 간단한 Insertion Sort에 대한 해결 코드 작성
 초기 리스트와 정렬 후 리스트 출력 (정렬 과정 출력 시 가점)
 (TC1 : 11 33 23 45 13 25 8 135) 
