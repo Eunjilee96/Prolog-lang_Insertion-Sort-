@@ -14,62 +14,19 @@ safe_queens([Q|Qs], Q0, D0) :-
         abs(Q0 - Q) #\= D0,
         D1 #= D0 + 1,
         safe_queens(Qs, Q0, D1).
-        
-        
-show(N, Options) :-
-        N #> 0,
-        n_queens(N, Qs),
-        phrase(postscript, Ps),
-        format("~s ~w init\n", [Ps,N]),
-        animate(Qs),
-        labeling(Options, Qs),
-        get_single_char(_),
-        false.
-show(_, _ ) :- halt.
-
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-nqueens(N):-
  
-        makelist(N,L),Diagonal=N*2-1,makelist(Diagonal,LL),
+ >예시 결과 
+ ?- N=4,
+ n_qeens(N,QS),
+ labeling([], QS)
  
-        placeN(N,board([],L,L,LL,LL),Final), write(Final).
+ ?- n-queen(10,X).
+ X=[7,4,2,9,5,10,8,6,3,1].
+ 
+  ?- n-queen(8,X).
+ X=[4,2,7,3,6,8,5,1].
+ 
+  ?- n-queen(10,X).
+ X=[7,4,2,9,5,10,8,6,3|...].
  
  
- 
-    placeN(_,board(D,[],[],D1,D2),board(D,[],[],D1,D2)):-!.
- 
-    placeN(N,Board1,Result):-
- 
-        place_a_queen(N,Board1,Board2),
- 
-        placeN(N,Board2,Result).
- 
- 
- 
-    place_a_queen(N,board(Queens,Rows,Columns,Diag1,Diag2),
- 
-    board([q(R,C)|Queens],NewR,NewC,NewD1,NewD2)):-
- 
-        nextrow(R,Rows,NewR),
- 
-        findandremove(C,Columns,NewC),
- 
-        D1=N+C-R,findandremove(D1,Diag1,NewD1),
- 
-        D2=R+C-1,findandremove(D2,Diag2,NewD2).
- 
-    findandremove(X,[X|Rest],Rest).
- 
-    findandremove(X,[Y|Rest],[Y|Tail]):-
- 
-        findandremove(X,Rest,Tail).
- 
- 
- 
-    makelist(1,[1]).
- 
-    makelist(N,[N|Rest]) :-
- 
-        N1=N-1,makelist(N1,Rest).
- 
-        nextrow(Row,[Row|Rest],Rest).
